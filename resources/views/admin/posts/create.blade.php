@@ -1,40 +1,13 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+@extends('admin.layouts.app')
 
-    <h1>Cadastrar Novo Post</h1>
+@section('title','Criação de post')
 
-    @if ($errors->any())
-    <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
-    </ul>
-        
-    @endif
+@section('content')
+<h1>Cadastrar Novo Post</h1>
 
-    <form action="{{ route('posts.store') }}" method="post">
-        @csrf<br>
-        <input type="text" name="title" id="title" placeholder="Título"
-         value="{{old('title')}}">
-        
-       <br>
-       <br>
 
-       <textarea name="content" id="content" cols="30" rows="4" placeholder="Conteúdo">
-        {{ old('content') }}
+<form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data">
+    @include('admin.posts._partials.form')
+</form>
 
-       </textarea>
-       
-       <br> 
-       
-       <button type="submit">Enviar</button>
-    </form>
-</body>
-</html>
+@endsection
