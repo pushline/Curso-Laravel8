@@ -1,15 +1,13 @@
 @extends('admin.layouts.app')
 
 <?php
-
 Use App\Models\Post;
-
 ?>
-
+<title>Criação de Posts</title>
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Listagem de Posts') }}
+            {{ __('Criação de Posts') }}
         </h2>
     </x-slot>
 
@@ -30,6 +28,8 @@ Use App\Models\Post;
 
                     <form action="{{ route('posts.store') }}" method="post" enctype="multipart/form-data">
                         @include('admin.posts._partials.form')
+
+                        <button type="submit" class="btn btn-primary">Enviar</button>
                     </form>
 
                 </div>

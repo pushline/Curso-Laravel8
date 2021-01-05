@@ -22,16 +22,9 @@ placeholder="Conteúdo">
 {{$post->title ?? old('content')}}
 </textarea><br><br>
 
-Imagem Antiga
 
-<img src="{{ url("storage/{$post->image}") }} " 
-            alt="{{ $post->title }}" 
-                style="max-width:50px;max-height:50px" 
-                    value="{{$post->image ?? old('image')}}">
-                        
                         <br>
 
 <input type="file" name="image" id="image"><br><br>
 
 
-<button type="submit" class="btn btn-primary">Enviar</button>
